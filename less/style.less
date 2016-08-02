@@ -5,6 +5,42 @@
 	max-width:@max-width;
 }
 
+.block-speech-bubble(@width: 370px,@height: 250px,@padding: 30px,@margin: 0 auto) {
+   width:@width;
+   height:@height;
+   padding:@padding;
+   margin:@margin;
+   border: 1px solid #d2d1d1;     
+   position: relative;
+   margin-bottom: 20px;
+}
+
+.speech-bubble-before(@bottom: -25px,@left: 32px,@border-width: 25px 15px 0) {
+   bottom:@bottom;
+   left:@left;
+   border-width:@border-width;
+   content: "";
+   position: absolute;
+   border-color: #d2d1d1 transparent transparent transparent;
+   border-style: solid;
+   display: block;
+   z-index: 1; 
+}
+
+.speech-bubble-after(@bottom: -24px,@left: 33px,@border-width: 24px 14px 0) {
+   bottom:@bottom;
+   left:@left;
+   border-width:@border-width;
+   border-color: #ffffff transparent;
+   border-style: solid;
+   content: '';
+   position: absolute;
+   display: block;
+   z-index: 1; 
+}
+
+@max-width-1400: 1400px;
+
 @header-footer-background-color: #2d3541;
 
 @container-background-color: #f7f8f8;
@@ -31,47 +67,47 @@ body {
 .container {
     
     &-video {
-	.max-site-width;
+	.max-site-width();
 	background: @container-background-color;
 	padding-bottom: 50px;
 }
 
     &-aboutservice {	
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
     
     &-count {
 	background: @container-background-color;	
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
 
     &-tariffs {
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
 
     &-likes {
     background: @container-background-color;
 	height:230px;
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
 
     &-comments {	
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
 
     &-instagram {
     background: @container-background-color;
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
 
     &-contacts {
 	height:750px;
-	max-width: 1400px;
+	max-width: @max-width-1400;
 }
 
     &-footer {	
 	background:  @header-footer-background-color; 
-	max-width: 1400px;
+	max-width: @max-width-1400;
 	margin: 0 -1px -1px -1px;
   
     li {
@@ -152,7 +188,7 @@ h1 {
 }
 
 .row {
-	max-width: 1400px;
+	max-width: @max-width-1400;
 	margin: 0 !important;
 
   &-nav {
@@ -458,27 +494,11 @@ h1 {
 	  margin-bottom: 20px;
  
     &:before {
-      border-color:#d2d1d1 transparent transparent transparent;
-      border-width: 28px 28px 0px 0px;
-      border-style: solid;
-      position: absolute;
-      left: 45px;
-      bottom: -28px;
-      content:'';
-	  display: block;
-	  z-index: 1;
+       .speech-bubble-before(-28px,45px,28px 28px 0px 0px);
     }
     
     &:after {
-      border-color: #ffffff transparent;
-      border-style: solid;
-      border-width: 27px 27px 0px 0px;
-      bottom: -26px;
-      content: '';
-      position: absolute;
-      left: 46px;
-	  display: block;
-	  z-index: 1; 
+        .speech-bubble-after(-26px,46px,27px 27px 0px 0px);
     }
 }
   
@@ -618,11 +638,11 @@ h1 {
     
     &-aboutservice {
     height: 560px;
-    max-width: 1400px;
+    max-width: @max-width-1400;
     }	
 	
 	&-comments {  
-    max-width: 1400px;
+    max-width: @max-width-1400;
   }
 }
 	
@@ -683,27 +703,11 @@ h1 {
 	height: 170px;
   
     &:before {
-    border-color: #d2d1d1 transparent transparent transparent;
-    border-width: 28px 28px 28px 0px;
-    border-style: solid;
-    position: absolute;
-    left: 431px;
-    bottom: 50px;
-    content: '';
-	display: block;
-	z-index: 1;
+         .speech-bubble-before(50px,431px,28px 28px 28px 0px);
     }
   
     &:after {
-    border-color: #ffffff transparent;
-    border-style: solid;
-    border-width: 27px 27px 0px 0px;
-    bottom: 78px;
-    content: '';
-    position: absolute;
-    left: 430px;
-	display: block;
-	z-index: 1;	
+       .speech-bubble-after(78px,430px,27px 27px 0px 0px);
    }
   }
 
@@ -787,39 +791,15 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-  .speech-bubble {     
-      border: 1px solid #d2d1d1;     
-      width: 290px;	  
-	  height: 300px;
-      padding: 30px;
-      position: relative;
-      margin: 0 auto;
-	  margin-bottom: 20px;
-  
+  .speech-bubble {   
+      .block-speech-bubble(290px,300px); 
+       
   &:before {
-    content: "";
-    position: absolute;
-    bottom: -25px;
-    left: 32px;
-    border-style: solid;
-    border-width: 25px 15px 0;
-    border-color: #d2d1d1 transparent;
-    display: block;
-    width: 0;
-    z-index: 1;
+     .speech-bubble-before();
   }
   
   &:after {
-    content: "";
-    position: absolute;
-    bottom: -24px;
-    left: 33px;
-    border-style: solid;
-    border-width: 24px 14px 0;
-    border-color: #fff transparent;
-    display: block;
-    width: 0;
-    z-index: 1;	  
+    .speech-bubble-after();	  
   }
 }
  
@@ -893,39 +873,15 @@ h1 {
     transform: translate(-50%, -50%);
 }
 	
-	.speech-bubble {     
-      border: 1px solid #d2d1d1;     
-      width: 350px;
-	  height: 250px;     
-      padding: 30px;
-      position: relative;
-      margin: 0 auto;
-	  margin-bottom: 20px;
+	.speech-bubble {    
+  .block-speech-bubble(350px); 
   
     &:before {
-    content: "";
-    position: absolute;
-    bottom: -25px;
-    left: 32px;
-    border-style: solid;
-    border-width: 25px 15px 0;
-    border-color: #d2d1d1 transparent;
-    display: block;
-    width: 0;
-    z-index: 1;
+    .speech-bubble-before();
   }
   
    &:after {
-    content: "";
-    position: absolute;
-    bottom: -24px;
-    left: 33px;
-    border-style: solid;
-    border-width: 24px 14px 0;
-    border-color: #fff transparent;
-    display: block;
-    width: 0;
-    z-index: 1;	  
+    .speech-bubble-after();  
   }
 }
 
@@ -983,38 +939,14 @@ h1 {
 	}
 	
 	.speech-bubble {     
-      border: 1px solid #d2d1d1;     
-      width: 370px;
-	  height: 250px;     
-      padding: 30px;
-      position: relative;
-      margin: 0 auto;
-	  margin-bottom: 20px;
-  
+     .block-speech-bubble();
+    
     &:before {
-    content: "";
-    position: absolute;
-    bottom: -25px;
-    left: 32px;
-    border-style: solid;
-    border-width: 25px 15px 0;
-    border-color: #d2d1d1 transparent;
-    display: block;
-    width: 0;
-    z-index: 1;
+    .speech-bubble-before();
   }
   
     &:after {
-     content: "";
-    position: absolute;
-    bottom: -24px;
-    left: 33px;
-    border-style: solid;
-    border-width: 24px 14px 0;
-    border-color: #fff transparent;
-    display: block;
-    width: 0;
-    z-index: 1;	
+    .speech-bubble-after();
   }
  }
 }
