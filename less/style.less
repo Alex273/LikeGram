@@ -1,5 +1,21 @@
 @charset "utf-8";
 
+.max-site-width(@max-width:1400px,@width:100%) {
+	width:@width;
+	max-width:@max-width;
+}
+
+@header-footer-background-color: #2d3541;
+
+@container-background-color: #f7f8f8;
+
+@btn-try-free-background: #008fde;
+
+@tariff-start-color: #54c169;
+
+@tariff-pro-color: #0090e0;
+
+
 body {
 	font-family: Calibri, Helvetica Neue,  Helvetica, Arial, sans-serif !important;
 	background: #ffffff;
@@ -7,16 +23,25 @@ body {
 }
 
 .main-container {
-	width:100%;
-	max-width: 1400px;
+	.max-site-width();
 	margin: 0 auto;
 	border: 1px solid #dadada;   
 }
 
 .container {
     
+    &-video {
+	.max-site-width;
+	background: @container-background-color;
+	padding-bottom: 50px;
+}
+
+    &-aboutservice {	
+	max-width: 1400px;
+}
+    
     &-count {
-	background: #f7f8f8;	
+	background: @container-background-color;	
 	max-width: 1400px;
 }
 
@@ -25,7 +50,7 @@ body {
 }
 
     &-likes {
-	background: #f7f8f8;
+    background: @container-background-color;
 	height:230px;
 	max-width: 1400px;
 }
@@ -35,7 +60,7 @@ body {
 }
 
     &-instagram {
-	background: #f7f8f8;
+    background: @container-background-color;
 	max-width: 1400px;
 }
 
@@ -45,7 +70,7 @@ body {
 }
 
     &-footer {	
-	background: #2d3541;
+	background:  @header-footer-background-color; 
 	max-width: 1400px;
 	margin: 0 -1px -1px -1px;
   
@@ -71,10 +96,9 @@ h1 {
 }
 
 .header {
+   .max-site-width();
     height: 72px;
-	width: 100%;
-	max-width: 1400px;
-    background: #2d3541;   
+    background:  @header-footer-background-color;   
 	position: fixed;
 	z-index: 9999;
 	margin-left: -1px;
@@ -182,19 +206,8 @@ h1 {
     margin: 0 auto;
 }
 
-.container-video {
-	background: #f7f8f8;	
-	width:100%;
-	max-width: 1400px;
-	padding-bottom: 50px;
-}
-
 .col-video {
 	margin-top: 90px;
-}
-
-.container-aboutservice {	
-	max-width: 1400px;
 }
 
 .col-aboutservice {
@@ -233,10 +246,9 @@ h1 {
 }
 
 .likegram-button {
+   .max-site-width(260px);
     color: #fff;
-    background-color:#008fde;
-    width: 100%;
-    max-width: 260px;
+    background-color: @btn-try-free-background;
 	height:55px;
 	border-radius: 8px;
 	font-size:18px;
@@ -287,7 +299,7 @@ h1 {
 }
 
 .tariff-start-text {
-	color:#54c169;
+	color: @tariff-start-color;
 	font-size: 36px;	
 	margin-bottom: 0;
 	margin-top: 5px;
@@ -315,14 +327,14 @@ h1 {
 .start-star {
    display:inline-block;
    font-size:32px;
-   color:#54c169;
+   color: @tariff-start-color;
 }
 
 .tariffs-start-button {
 	background-color: #ffffff;
 	width:250px;
 	height:45px;
-	border: 1px solid #54c169;
+	border: 1px solid @tariff-start-color;
 	border-radius: 8px;
 	margin-top:25px;
 	
@@ -332,7 +344,7 @@ h1 {
 
     
     &-text {
-	color:#54c169;
+	color:@tariff-start-color;
 	font-size: 20px;
 	margin: 0;
   }
@@ -341,7 +353,7 @@ h1 {
 .tariff-pro {
    
     &-text {
-	color:#0090e0;
+	color:@tariff-pro-color;
 	font-size: 36px;	
 	margin-bottom: 0;
 	margin-top: 5px;
@@ -359,7 +371,7 @@ h1 {
 	background-color: #ffffff;
 	width:250px;
 	height:45px;
-	border: 1px solid #0090e0;
+	border: 1px solid @tariff-pro-color;
 	border-radius: 8px;
 	margin-top:25px;
 	
@@ -368,7 +380,7 @@ h1 {
 	}
 
     &-text {
-	color:#0090e0;
+	color:@tariff-pro-color;
 	font-size: 20px;
 	margin: 0;
  }
@@ -377,7 +389,7 @@ h1 {
 .pro-star {
    display:inline-block;
    font-size:32px;
-   color:#0090e0;
+   color:@tariff-pro-color;
 }
 
 .main-col-comments {
@@ -495,7 +507,7 @@ h1 {
 }
 
 .name-comments {
-   color: #0090e0;
+   color: @tariff-pro-color;
 }
 
 .likes, .instagram {
@@ -554,7 +566,7 @@ h1 {
 	background-color: #ffffff;
     width: 250px;
     height: 45px;
-    border: 1px solid #0090e0;
+    border: 1px solid @tariff-pro-color;
     border-radius: 8px;
     margin-top: 25px;
     
@@ -602,7 +614,6 @@ h1 {
     background: #f7f8f8;
     height: 860px;
     width: 100%;
-    max-width: 1400px;    
     }
     
     &-aboutservice {
@@ -631,10 +642,9 @@ h1 {
 	margin-top: 20px;
 	
 	&-button {
+   .max-site-width(260px);
     color: #fff;
-    background-color: #008fde;
-    width: 100%;
-    max-width: 260px;
+    background-color: @btn-try-free-background;
     height: 55px;
     border-radius: 8px;   
     font-size: 18px;
@@ -708,7 +718,6 @@ h1 {
     background: #f7f8f8;
     height: 550px;
     width: 100%;
-    max-width: 1400px;
     }
   }
 	
@@ -729,10 +738,9 @@ h1 {
 	margin-top: 70px;
 	
 	&-button {
+    .max-site-width(260px);
     color: #fff;
-    background-color: #008fde;
-    width: 100%;
-    max-width: 260px;
+    background-color: @btn-try-free-background;
     height: 55px;
     border-radius: 8px;
     margin-top: 30px; 
@@ -837,10 +845,9 @@ h1 {
 	margin-top: 120px;
 	
 	&-button {
+    .max-site-width(260px);
     color: #fff;
-    background-color: #008fde;
-    width: 100%;
-    max-width: 260px;
+    background-color: @btn-try-free-background;
     height: 55px;
     border-radius: 8px;
     margin-top: 30px;
@@ -944,10 +951,9 @@ h1 {
 	margin-top: 120px;
   
 	&-button {
+    .max-site-width(260px);
     color: #fff;
-    background-color: #008fde;
-    width: 100%;
-    max-width: 260px;
+    background-color: @btn-try-free-background;
     height: 55px;
     border-radius: 8px;
     margin-top: 30px;
